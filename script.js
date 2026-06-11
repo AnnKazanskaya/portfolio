@@ -15,6 +15,30 @@ window.addEventListener('resize', fitFrames);
 window.addEventListener('load', fitFrames);
 fitFrames();
 
+// ===== Полноэкранный просмотр макетов («Открыть макет») =====
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightboxImg');
+
+function openLightbox(src) {
+  lightboxImg.src = src;
+  lightbox.classList.add('is-open');
+  lightbox.setAttribute('aria-hidden', 'false');
+  lightbox.querySelector('.lightbox__scroll').scrollTop = 0;
+  document.body.style.overflow = 'hidden'; // блокируем скролл страницы под окном
+}
+function closeLightbox() {
+  lightbox.classList.remove('is-open');
+  lightbox.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+}
+document.querySelectorAll('[data-view]').forEach((btn) => {
+  btn.addEventListener('click', () => openLightbox(btn.dataset.view));
+});
+lightbox.querySelector('.lightbox__close').addEventListener('click', closeLightbox);
+window.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeLightbox();
+});
+
 // ===== Навигация: становится «стеклянной на светлом», когда уходим с главного экрана =====
 const nav = document.getElementById('nav');
 const hero = document.querySelector('.hero');

@@ -113,6 +113,7 @@
         <div class="work__tags">
           <span class="tag">UX/UI</span><span class="tag">лендинг</span><span class="tag">figma</span>
         </div>
+        <button class="btn" type="button" data-view="figma/project-1.png" aria-label="Открыть макет Lumière на весь экран">Открыть макет</button>
       </div>
       <div class="work__media">
         <div class="browser">
@@ -136,6 +137,7 @@
         <div class="work__tags">
           <span class="tag">UX/UI</span><span class="tag">e-commerce</span><span class="tag">figma</span>
         </div>
+        <button class="btn" type="button" data-view="figma/project-2.png" aria-label="Открыть макет Ombrelune на весь экран">Открыть макет</button>
       </div>
       <div class="work__media">
         <div class="laptop">
@@ -172,6 +174,14 @@
       <p class="footer__copy">© 2026 Мариана</p>
     </div>
   </footer>
+
+  <!-- Полноэкранный просмотр макета -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox__close" type="button" aria-label="Закрыть">✕</button>
+    <div class="lightbox__scroll">
+      <img src="" alt="Макет во весь экран" id="lightboxImg">
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
